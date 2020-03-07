@@ -1,19 +1,21 @@
+
 let express = require("express"),
-    app = express();
+app = express(),
+bodyParser = require("body-parser");
 const port = 3000;
-
-
-// Routes
-/* let indexRoutes = require("./routes/index");
-
-// Configs
-
-*/
-
 
 // Landing Page
 app.get("/", function(req, res){
 	res.render("index"); // CHANGE TO LANDING ONCE LANDING IS INCORPORATED!!!
+});
+
+app.use(bodyParser.urlencoded({extended: true}));
+app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
+
+// Landing Page
+app.get("/", function(req, res){
+	res.render("index");
 });
 
 
