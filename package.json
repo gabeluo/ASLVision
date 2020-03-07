@@ -1,0 +1,22 @@
+{
+  "name": "newhacks2020",
+  "version": "1.0.0",
+  "description": "Hackathon project for NewHacks2020",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mpdevelops/NewHacks2020.git"
+  },
+  "author": "Mike, Samson, Gabriel, Weihao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mpdevelops/NewHacks2020/issues"
+  },
+  "homepage": "https://github.com/mpdevelops/NewHacks2020#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
