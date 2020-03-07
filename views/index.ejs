@@ -1,18 +1,41 @@
 <%- include("./partials/header") %>
 
-<h1>Hello World!</h1>
+<h1>ASL Vision Web App</h1>
 <style>
-#container {
-	margin: 0px auto;
-	width: 500px;
-	height: 375px;
-	border: 2px #333 solid;
-}
-#videoElement {
-	width: 500px;
-	height: 375px;
-	background-color: #666;
-}</style>
+    #container {
+        margin: 0px auto;
+        width: 500px;
+        height: 375px;
+        border: 2px #333 solid;
+    }
+    #videoElement {
+        width: 500px;
+        height: 375px;
+        background-color: #666;
+    }
+    body {
+    background-color: #EBFCFB;
+  }
+
+h1 {
+    color: black;
+    text-align: center;
+    font-family: "BankGothic Lt BT", sans-serif
+  } 
+
+p {
+    color: black;
+    text-align: center;
+    font-family: "Cambria", sans-serif
+  }
+  
+  </style>
+<p>A web app designed to translate images of sign language to sentences; a tool for everyone to ingrate better with the ASL community.</p>
+
+<div class="text-center"> 
+    <button id="CameraButton" name="CameraButton" class="btn btn-primary mr-4">Camera</button> 
+    <a href="\Users\gabriel\Documents\GitHub\NewHacks2020\view\upload.ejs" class="btn btn-primary" role="button">Upload</a>
+</div>
 
 <div id="container">
 	<video autoplay="true" id="videoElement">
