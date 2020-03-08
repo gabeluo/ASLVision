@@ -232,15 +232,19 @@ function hideFunction() {
     //         context.drawImage(player, 0 + 120 * count, 0, 100, 75);
     //     });
     // }
+
    var count = 0;
      captureButton.addEventListener('click', () => {
          context.drawImage(player, 0 + 120 * count, 0, 100, 75);
          dataURL = canvas.toDataURL();
+         console.log(dataURL);
          var a = document.createElement("a"); //Create <a>
         a.href = "data:image/png;base64," + dataURL; //Image Base64 Goes here
         a.download = "Image.png"; //File name Here
+        document.body.appendChild(a);
         a.click(); //Downloaded file
-       count++;
+        document.body.removeChild(a);
+        count++;
 
     //    html2canvas(document.querySelector("#capture")).then(canvas => {
     //  document.body.appendChild(canvas)
