@@ -171,7 +171,7 @@ function hideFunction() {
     <button id="capture" class="btn btn-danger capture">Capture</button> 
 </div>
 
-<canvas id="canvas" class="mr-6" width=3000 height=200></canvas>
+<canvas id="canvas" class="mr-6" width=1320 height=200></canvas>
 <!-- <div>
     <a id="a-download" href="as.jpg" style="display:none;">Download a screenshot</a>
 </div> -->
@@ -242,7 +242,7 @@ function hideFunction() {
         a.href = "data:image/png;base64," + dataURL; //Image Base64 Goes here
         a.download = "Image.png"; //File name Here
         document.body.appendChild(a);
-        a.click(); //Downloaded file
+        // a.click(); //Downloaded file
         document.body.removeChild(a);
         count++;
 
@@ -290,8 +290,8 @@ function hideFunction() {
     //   });
   </script>
 
- <svg width="400" height="110">
+ <!-- <svg width="400" height="110">
     <rect width="300" height="100" style="fill:transparent;stroke-width:1;stroke:rgb(0,0,0)" />
-  </svg>
+  </svg> -->
 
 <%- include("./partials/footer") %>
