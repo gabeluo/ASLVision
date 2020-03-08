@@ -16,7 +16,7 @@
     }
 
     #videoElement {
-        width: 500px;
+        width: 495px;
         height: 375px;
         background-color: #666;
     }
@@ -81,7 +81,6 @@ function hideFunction() {
                     <label class="custom-file-label" for="customFile">Choose file</label>
                   </div> -->
 
-            <form action="/action_page.php">
                 <div class="form-group">
                     <input type="file" accept="image/*" class="form-control-file border" id="Upload">
                     <script>
@@ -91,7 +90,7 @@ function hideFunction() {
                       </script>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+
     <script>
 
     const target = document.getElementById('target');
@@ -124,6 +123,7 @@ function hideFunction() {
 
         if (file !== null) {
         output.src = URL.createObjectURL(file);
+        <a href="cURL.createObjectURL(file)" download></a>
         }
     }
     </script>
@@ -167,13 +167,55 @@ function hideFunction() {
 </script>
 
 <div class="text-center"> 
-    <button id="capture" class="btn btn-danger capture">Capture</button> 
+    <button id="capture" class="btn btn-danger capture" onclick = "makeScreenshot()">Capture</button> 
 </div>
 
 
 <canvas id="canvas" class="mr-6" width=3000 height=200></canvas>
+<!-- <div>
+    <a id="a-download" href="as.jpg" style="display:none;">Download a screenshot</a>
+</div> -->
 
+<!-- <script>
+    function makeScreenshot() {
+        html2canvas(document.getElementById("screenshot"), {scale: 1}).then(canvas => {
+            document.body.appendChild(canvas);
+        });
+    }
+</script> -->
+
+<div>
+    <a id="a-make" href="#">Make a screenshot</a>
+    <a id="a-download" href="#" style="display:none;">Download a screenshot</a>
+</div>
+ 
 <script>
+    function makeScreenshot()
+    {
+        html2canvas(document.getElementById("videoElement"), {scale: 2}).then(canvas =>
+        {
+            canvas.id = "canvasID";
+            var main = document.getElementById("main");
+            while (main.firstChild) { main.removeChild(main.firstChild); }
+            main.appendChild(canvas);
+        });
+    }
+
+    document.getElementById("a-make").addEventListener('click', function()
+    {
+        document.getElementById("a-make").style.display = "none";
+        makeScreenshot();
+        document.getElementById("a-download").style.display = "inline";
+    }, false);
+
+    document.getElementById("a-download").addEventListener('click', function()
+    {
+        this.href = document.getElementById("canvasID").toDataURL();
+        this.download = "canvas-image.png";
+    }, false);
+</script>
+
+<!-- <script>
     const player = document.getElementById('videoElement');
     const canvas = document.getElementById('canvas');
     const context = canvas.getContext('2d');
@@ -183,28 +225,63 @@ function hideFunction() {
       video: true,
     };
   
-  var count = 0;
-    captureButton.addEventListener('click', () => {
-        context.drawImage(player, 0 + 120 * count, 0, 100, 75);
-      count++;
+    function makeScreenshot() {
+        html2canvas(document.getElementById("canvas"), {scale: 1}).then(canvas => {
+            document.body.appendChild(canvas);
+            context.drawImage(player, 0 + 120 * count, 0, 100, 75);
+        });
+    }
+//   var count = 0;
+//     captureButton.addEventListener('click', () => {
+//         context.drawImage(player, 0 + 120 * count, 0, 100, 75);
+//       count++;
+
+//       html2canvas(document.querySelector("#capture")).then(canvas => {
+//     document.body.appendChild(canvas)
+//     });
+//});
+
+    // function makeScreenshot()
+    // {
+    //     html2canvas(document.getElementById("capture"), {scale: 2}).then(canvas =>
+    //     {
+    //         canvas.id = "canvasID";
+    //         var main = document.getElementById("main");
+    //         while (main.firstChild) { main.removeChild(main.firstChild); }
+    //         main.appendChild(canvas);
+    //     });
+    // }
+
+    // document.getElementById("a-make").addEventListener('click', function()
+    // {
+    //     document.getElementById("a-make").style.display = "none";
+    //     makeScreenshot();
+    //     document.getElementById("a-download").style.display = "inline";
+    // }, false);
+
+    // document.getElementById("a-download").addEventListener('click', function()
+    // {
+    //     this.href = document.getElementById("canvasID").toDataURL();
+    //     this.download = "canvas-image.png";
+    // }, false);
     //   $('player').html2canvas({
     //     onrendered: function (canvas) {
     //         //Set hidden field's value to image data (base-64 string)
     //         $('#img_val').val(canvas.toDataURL("image/png"));
     //         //Submit the form manually
-    //         document.getElementById("myForm").submit();
+    //         // document.getElementById("myForm").submit();
     //     }
     // });
-    });
+
     // // Attach the video stream to the video element and autoplay.
     // navigator.mediaDevices.getUserMedia(constraints)
     //   .then((stream) => {
     //     player.srcObject = stream;
     //   });
-  </script>
+  </script> -->
 
-<svg width="400" height="110">
+<!-- <svg width="400" height="110">
     <rect width="300" height="100" style="fill:transparent;stroke-width:1;stroke:rgb(0,0,0)" />
-  </svg>
+  </svg> -->
 
 <%- include("./partials/footer") %>
