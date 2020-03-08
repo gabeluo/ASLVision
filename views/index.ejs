@@ -30,12 +30,89 @@ p {
   }
   
   </style>
-<p>A web app designed to translate images of sign language to sentences; a tool for everyone to ingrate better with the ASL community.</p>
+<p>A web app designed to translate images of sign language to words and sentences; a tool for everyone to integrate better with the ASL community.</p>
 
 <div class="text-center"> 
-    <button id="CameraButton" name="CameraButton" class="btn btn-primary mr-4">Camera</button> 
-    <a href="\Users\gabriel\Documents\GitHub\NewHacks2020\view\upload.ejs" class="btn btn-primary" role="button">Upload</a>
+    <button id="CameraButton" class="btn btn-primary mr-5">Camera</button> 
+    <button id="Upload" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Upload</button> 
 </div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <p class="modal-title">Modal Header</p>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>You can drag and drop your files below or upload a file directly.</p>
+            <div id="target">You can drag an image file below</div>
+
+            <!-- <div class="container mt-3">
+                <form action="/action_page.php">
+                  <p>Custom file:</p>
+                  <div class="custom-file mb-3">
+                    <input type="file" class="custom-file-input" id="customFile" name="filename">
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                  </div> -->
+
+            <form action="/action_page.php">
+                <div class="form-group">
+                    <input type="file" accept="image/*" class="form-control-file border" id="Upload">
+                    <script>
+                        const fileInput = document.getElementById('Upload');
+                      
+                        fileInput.addEventListener('change', (e) => doSomethingWithFiles(e.target.files));
+                      </script>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+
+    <script>
+    const target = document.getElementById('target');
+
+    target.addEventListener('drop', (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+
+        doSomethingWithFiles(e.dataTransfer.files);
+    });
+
+    target.addEventListener('dragover', (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+
+        e.dataTransfer.dropEffect = 'copy';
+    });
+
+    const output = document.getElementById('target');
+
+    function doSomethingWithFiles(fileList) {
+        let file = null;
+
+        for (let i = 0; i < fileList.length; i++) {
+        if (fileList[i].type.match(/^image\//)) {
+            file = fileList[i];
+            break;
+        }
+        }
+
+        if (file !== null) {
+        output.src = URL.createObjectURL(file);
+        }
+    }
+    </script>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <div id="container">
 	<video autoplay="true" id="videoElement">
@@ -68,5 +145,44 @@ p {
     }
 
 </script>
+
+<div class="text-center"> 
+    <button id="capture" class="btn btn-danger">Capture</button> 
+</div>
+
+
+<canvas id="canvas" width=320 height=240></canvas>
+
+<script>
+    const player = document.getElementById('videoElement');
+    const canvas = document.getElementById('canvas');
+    const context = canvas.getContext('2d');
+    const captureButton = document.getElementById('capture');
+  
+    const constraints = {
+      video: true,
+    };
+  
+    captureButton.addEventListener('click', () => {
+        context.drawImage(player, 0, 0, canvas.width, canvas.height);
+      // Draw the video frame to the canvas.
+      $('player').html2canvas({
+        onrendered: function (canvas) {
+            //Set hidden field's value to image data (base-64 string)
+            $('#img_val').val(canvas.toDataURL("image/png"));
+            //Submit the form manually
+            document.getElementById("myForm").submit();
+        }
+    });
+    });
+  
+    // // Attach the video stream to the video element and autoplay.
+    // navigator.mediaDevices.getUserMedia(constraints)
+    //   .then((stream) => {
+    //     player.srcObject = stream;
+    //   });
+
+      
+  </script>
 
 <%- include("./partials/footer") %>
