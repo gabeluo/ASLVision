@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "asl-vision-270418",
+  "private_key_id": "a982726393a699ebfd5b5b17d5d29267c197f894",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDvKF9zroxit+yU\nDaZyKdRcDPL5Y82YdWt9yl/BgkC6h7h960Rix1eBTM4LS34j91yc0CRMkdYPQpOu\n74t21j585zVSPvxQlGiT5SF+ZSPMnPPgfIOWkEKgcKdw4bc3ZPLFzoo+cR0cBi2y\n4ELDQZFl5dUEG8OdyR1JmRqA92GAgxhqTLbJ0Ic94b9XJBMhihFfhoKnu1Av6ekA\nIlRwrHEa4Dar3jHv1vCgKECYj5PMV6W3BT5Z0Eak1IarNUBOT4Wu06sZ3H5Qr/Ch\nV8YdWGmKUL0hGCBdd6VY9ft7QG4EmC3U6kk1X8rQrEbbizL3euRXUWzScMsVPBXq\nRNJoJY4dAgMBAAECggEAOSPeBHNqjsaPc4M8Zq/oUVL1tZC7JUc+trgEv2T5xqdZ\nNNqihPBIT7gUTZ4Mpha6javsVFAOwygexW/t1CeVl/2c34j1e2IuB1H6Oer7ze4d\nFaBiRzWx+YfY9a80OXu4xnqVzJv1fsXaItASm3i9vskWJ0xj5T3RLc2zB6ezZ8LU\nZyUu7KOLLStUvtk0cYH1O4FYIDOzWKaygrYteOxiwjZ/Lbd4yKFjUhBYoMw515r6\ndg/62E1xQ4qnhY0wR68ohF39qs04/Ry3+CsLWhrigPNfKXLc4x640mvNBRuIqkCi\nj0HLxkaDQFwLc7gxlca/MBtWCYqQVKq2HN3LViwG2QKBgQD+4qlVIwcjjD6M0yav\nzBVnkJpIyqXEGBEH67Q9AOZKdas0ua526zDgKPSRF96YwxFVdUndFnQCG1qBs0ao\nW83rYCL+GNjSBE6W+A9CB+xTC59nW7aTfQ7ufKjdw5Tp0L89wqDHQ0LceoRnv70d\ng8Hj5P31d0peh/WPtU36rT5r5QKBgQDwNBrHUWEBwB9tnXNOVoQUrflIZsFp1fej\nOmf7a6w1wBn2tODoKz4F2Pzlbqsw0dh5bnwbHcbtyt7nvrf2GbJCQRRMlGiJ8Gmf\nIYLTODarTMbKok65CDFsFtVfERZGwOEDZeEAwM2d0I+/0fDk+zDcypY76prFbCGA\nQBuUg9Ql2QKBgQCC9OIbpAue8AeTQ0m1OR4mP92FWNkij1rwvuG0Fio8R4jXZi+F\nWgGaqnA9vA3aXx8g0UpKFac1DejKitna1pBORu6zrwB3p07Zsknkmz2IzYfxCuYb\nkT2CuvnoNvzjxST9Dmqc9qn7rdcplxILgA62kIkK/Wdwelpoo7aU/T39IQKBgFu5\naehm+QY0GUxAbcGiY/mJncG6C22g2Vmpef+WVEKKQt/knmXJ7XtKKvhp1FFmMKXe\nPOIV8trnN0uDlrgRg/Ks61V67piOB6dOoqiJtMahIOBMLoeVy1mdNomA+uK10Lb9\ndnhVJ6917w6u2rB2A2isq8XhhoyRCBHzaRTDaoWxAoGBAJbEIAhh8DSeH2zNzgec\n6rygE7kcRZPuJ95v5JOm4h/PqamuWVICwg6Vk2L2p/qdZFwp6dglHdd5sz8XQRq2\nTupLCS0yQFqO31bDTDr8RSUmr0LgZL6AXLYZd8dQ8wX+97/yn2EV5pxClC9tM1j4\nNONk6Nb1kONgNMKqJ/p7d1qr\n-----END PRIVATE KEY-----\n",
+  "client_email": "asl-team@asl-vision-270418.iam.gserviceaccount.com",
+  "client_id": "102281641629027207602",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/asl-team%40asl-vision-270418.iam.gserviceaccount.com"
+}
