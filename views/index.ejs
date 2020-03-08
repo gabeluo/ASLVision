@@ -3,39 +3,62 @@
 <h1>ASL Vision Web App</h1>
 <style>
     #container {
-        margin: 0px auto;
+        margin: 25px auto;
         width: 500px;
         height: 375px;
         border: 2px #333 solid;
+        visibility: hidden;
     }
+
+    #capture{
+        visibility: hidden;
+        margin: 25px;
+    }
+
     #videoElement {
         width: 500px;
         height: 375px;
         background-color: #666;
     }
+    
     body {
     background-color: #EBFCFB;
-  }
+    }
 
-h1 {
+    h1 {
     color: black;
     text-align: center;
     font-family: "BankGothic Lt BT", sans-serif
-  } 
+    } 
 
-p {
+    p {
     color: black;
     text-align: center;
     font-family: "Cambria", sans-serif
-  }
+    }
   
-  </style>
+</style>
+
 <p>A web app designed to translate images of sign language to words and sentences; a tool for everyone to integrate better with the ASL community.</p>
 
 <div class="text-center"> 
-    <button id="CameraButton" class="btn btn-primary mr-5">Camera</button> 
+    <button id="CameraButton" class="btn btn-primary mr-6" onclick="hideFunction()">Camera</button> 
     <button id="Upload" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Upload</button> 
 </div>
+
+<script>
+function hideFunction() {
+    var x = document.getElementById("container");
+    var y = document.getElementById("capture")
+    if (x.style.visibility === "visible") {
+      x.style.visibility = "hidden";
+      y.style.visibility = "hidden";
+    } else {
+      x.style.visibility = "visible";
+      y.style.visibility = "visible";
+    }
+  }
+</script>
 
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
@@ -44,12 +67,11 @@ p {
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <p class="modal-title">Modal Header</p>
+          <p class="modal-title">File Upload</p>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
           <p>You can drag and drop your files below or upload a file directly.</p>
-            <div id="target">You can drag an image file below</div>
 
             <!-- <div class="container mt-3">
                 <form action="/action_page.php">
@@ -70,9 +92,8 @@ p {
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
-
-
     <script>
+
     const target = document.getElementById('target');
 
     target.addEventListener('drop', (e) => {
@@ -116,7 +137,6 @@ p {
 
 <div id="container">
 	<video autoplay="true" id="videoElement">
-	
 	</video>
 </div>
 
@@ -147,11 +167,11 @@ p {
 </script>
 
 <div class="text-center"> 
-    <button id="capture" class="btn btn-danger">Capture</button> 
+    <button id="capture" class="btn btn-danger capture">Capture</button> 
 </div>
 
 
-<canvas id="canvas" width=320 height=240></canvas>
+<canvas id="canvas" class="mr-6" width=3000 height=200></canvas>
 
 <script>
     const player = document.getElementById('videoElement');
@@ -163,26 +183,28 @@ p {
       video: true,
     };
   
+  var count = 0;
     captureButton.addEventListener('click', () => {
-        context.drawImage(player, 0, 0, canvas.width, canvas.height);
-      // Draw the video frame to the canvas.
-      $('player').html2canvas({
-        onrendered: function (canvas) {
-            //Set hidden field's value to image data (base-64 string)
-            $('#img_val').val(canvas.toDataURL("image/png"));
-            //Submit the form manually
-            document.getElementById("myForm").submit();
-        }
+        context.drawImage(player, 0 + 120 * count, 0, 100, 75);
+      count++;
+    //   $('player').html2canvas({
+    //     onrendered: function (canvas) {
+    //         //Set hidden field's value to image data (base-64 string)
+    //         $('#img_val').val(canvas.toDataURL("image/png"));
+    //         //Submit the form manually
+    //         document.getElementById("myForm").submit();
+    //     }
+    // });
     });
-    });
-  
     // // Attach the video stream to the video element and autoplay.
     // navigator.mediaDevices.getUserMedia(constraints)
     //   .then((stream) => {
     //     player.srcObject = stream;
     //   });
-
-      
   </script>
+
+<svg width="400" height="110">
+    <rect width="300" height="100" style="fill:transparent;stroke-width:1;stroke:rgb(0,0,0)" />
+  </svg>
 
 <%- include("./partials/footer") %>
